@@ -6,7 +6,14 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+
+    <h5>Your total: $<%= Money.new(@order.total_cents)%></h5>
+    <h5>Orderd by: <%= @order.email %></h5>
   </div>
+
+
+
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
