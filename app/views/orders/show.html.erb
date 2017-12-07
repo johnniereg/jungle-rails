@@ -6,27 +6,25 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
-
-    <div class="panel panel-default items">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th colspan="2">Product</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @order.line_items.each do |item| %>
-            <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
     <h5>Your total: $<%= Money.new(@order.total_cents)%></h5>
     <h5>Orderd by: <%= @order.email %></h5>
+  </div>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 
 
