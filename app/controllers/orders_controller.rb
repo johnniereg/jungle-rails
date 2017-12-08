@@ -11,6 +11,9 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      UserMailer.order_receipt_email(order).deliver_now
+      
+      
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -53,11 +56,10 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
-    UserMailer.order_receipt_email(order).deliver_now
     order
   end
 
-  # returns total in cents not dollars (stripe uses cents as well)
+  # returns total in cents not dollars ( uses cents as well)
   def cart_total
     total = 0
     cart.each do |product_id, details|
