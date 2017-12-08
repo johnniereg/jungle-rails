@@ -26,6 +26,23 @@
       </div>
     </div>
 
+    <div class="row">
+      <h3>Reviews</h3>
+      <% @reviews = Review.where(product_id: @product.id) %>
+      <% if @reviews.any? %>
+        <% @reviews.each do |review| %>
+          <div>
+            <%= review.description %> <%= review.rating %>
+          </div>
+        <% end %>
+      <% else %>
+        <div>
+          No reviews yet!
+        </div>
+      <% end %>
+        
+    </div>
+
   </article>
 
 </section>
