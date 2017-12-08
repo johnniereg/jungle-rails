@@ -30,9 +30,11 @@
       <h3>Reviews</h3>
       <% @reviews = Review.where(product_id: @product.id) %>
       <% if @reviews.any? %>
-        <% @reviews.each do |review| %>
+        <% @reviews.reverse_each do |review| %>
           <div>
-            <%= review.description %> <%= review.rating %>
+            <ul>
+              <li><%= review.description %> - Rating: <%= review.rating %> out of 5</li>
+            </ul>
           </div>
         <% end %>
       <% else %>
