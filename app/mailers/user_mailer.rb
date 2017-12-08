@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def order_receipt_email(order)
     @order = order
-    mail(to: @order.email, subject: 'Your Jungle Order ID', template_path: 'user_mailer', template_name: 'order_receipt_email')
+    mail(to: @order.email, subject: "Your Jungle Order ID #{@order.id}", template_path: 'user_mailer', template_name: 'order_receipt_email')
 
   end
 

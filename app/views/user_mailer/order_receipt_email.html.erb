@@ -1,3 +1,10 @@
-<h1>Test test test</h1>
-<h2>Another line</h2>
-<h3> I've been changed. </h3>
+<h1>Thank you for your order!</h1>
+<p>Your order ID: <%= @order.id %>
+<p>Includes: <p>
+<ul>
+<% @order.line_items.each do |item| %>
+    <% product = Product.find_by(id: item.product) %>
+    <li><%= item.quantity %> - <%= product.name %></li>
+<% end %>
+</ul>
+<p>Your total amount: $<%= Money.new(@order.total_cents)%></p>
