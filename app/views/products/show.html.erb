@@ -45,11 +45,11 @@
           <%= form_for([@product, @review]) do |f| %>
             <div class="field">
               <%= f.label :review %><br>
-              <%= f.text_field :description %>
+              <%= f.text_field :description, class: "form-control", rows: 5 %>
             </div>
             <div class="field">
               <%= f.label :rating %><br>
-              <%= f.select :rating, [5, 4, 3, 2, 1] %>
+              <%= f.select :rating, [5, 4, 3, 2, 1], class: "form-control" %>
             </div>
             <div class="actions">
               <%= f.submit %>
