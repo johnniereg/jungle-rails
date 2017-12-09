@@ -133,7 +133,7 @@ cat3.products.create!({
 })
 
 User.create!(
-  first_name: "Test",
+  first_name: "Anonymous",
   last_name: "Test",
   email: "test@example.com",
   password_digest: "blahblah"

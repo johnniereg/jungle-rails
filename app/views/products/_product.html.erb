@@ -8,7 +8,7 @@
       <% @ratings = Review.where(product_id: product).pluck(:rating) %>
       <% rating = @ratings.sum / @ratings.size.to_f %>
       <% if @ratings.size > 0 %>
-        Rating: <%= rating %>
+        Rating: <%= rating %> / 5
       <% else %>
         No rating yet.
       <% end %>

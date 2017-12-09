@@ -1,0 +1,33 @@
+<div class="col-sm-6">
+<h3>Leave A Review</h3>
+  <div class="panel panel-default">
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    
+    <div class="panel-body">
+      <%= form_for([@product, @review]) do |f| %>
+        <div class="field">
+          <%= f.label :your_review %>
+          <%= f.text_area :description, class: "form-control", id: "review-form" %>
+        </div>
+        <div class="field">
+          <%= f.label :rating %><br>
+          <%= f.radio_button(:rating, 5) %>
+          <%= f.label(:rating, "5") %>
+          <%= f.radio_button(:rating, 4) %>
+          <%= f.label(:rating, "4") %>
+          <%= f.radio_button(:rating, 3) %>
+          <%= f.label(:rating, "3") %>
+          <%= f.radio_button(:rating, 2) %>
+          <%= f.label(:rating, "2") %>
+          <%= f.radio_button(:rating, 1) %>
+          <%= f.label(:rating, "1") %>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

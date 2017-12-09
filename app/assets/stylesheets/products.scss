@@ -80,15 +80,19 @@ main section.categories-show {
     padding-bottom: 10px;
   }
 
+  
 }
 
 main section.products-show {
   padding-bottom: 20px;
-
+  
   .product-detail {
     img.main-img {
       max-width: 100%;
     }
+  }
+  .reviews {
+    padding-top: 20px;
   }
 }
 
@@ -96,6 +100,7 @@ main section.orders-show {
   padding-bottom: 20px;
 }
 
-input {
-  margin: 5px;
+#review-form {
+  max-width: 100%;
+  min-width: 100%;
 }
