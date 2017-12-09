@@ -58,7 +58,9 @@
             <ul>
               <li>
               <%= review.description %> - Rating: <%= review.rating %> out of 5
-              <%= link_to fa_icon('trash'), review, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% if current_user == review.user %>
+                <%= link_to fa_icon('trash'), review, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
               </li>
             </ul>
           </div>
