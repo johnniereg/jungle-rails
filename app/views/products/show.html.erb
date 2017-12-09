@@ -26,26 +26,28 @@
       </div>
     </div>
 
-    <div class="row">
-      <h2>New Review</h2>
+    <% if current_user %>
+      <div class="row">
+        <h2>New Review</h2>
 
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
-      <% end %>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: name %>
+        <% end %>
 
-      <%= form_for([@product, @review]) do |f| %>
-        <div class="field">
-          <%= f.label :rating %><br>
-          <%= f.select :rating, [1, 2, 3, 4, 5] %>
-        <div class="field">
-          <%= f.label :description %><br>
-          <%= f.text_field :description %>
-        </div>
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
-    </div>
+        <%= form_for([@product, @review]) do |f| %>
+          <div class="field">
+            <%= f.label :rating %><br>
+            <%= f.select :rating, [1, 2, 3, 4, 5] %>
+          <div class="field">
+            <%= f.label :description %><br>
+            <%= f.text_field :description %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
     
     <div class="row">
       <h3>Reviews</h3>
