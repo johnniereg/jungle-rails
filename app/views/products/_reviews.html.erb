@@ -1,0 +1,23 @@
+  <h3>Reviews</h3>
+
+  <% @reviews = Review.where(product_id: @product.id) %>
+  <% if @reviews.any? %>
+    <% @reviews.reverse_each do |review| %>
+    <% @user = User.find(review.user) %>
+      <div class="row">
+        <ul>
+          <li>
+          <%= @user.first_name %> said: <%= review.description %> - Rating: <%= review.rating %> out of 5
+          <% if current_user == review.user %>
+            <%= link_to fa_icon('trash'), review, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  <% else %>
+    <div>
+        No reviews yet!
+    </div>
+  <% end %>
+  
