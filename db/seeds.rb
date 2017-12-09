@@ -154,5 +154,19 @@ Review.create!(
   rating: 5
 )
 
+Review.create!(
+  product_id: 1,
+  user_id: 1,
+  description: "I hate it!",
+  rating: 1
+)
+
+Review.create!(
+  product_id: 1,
+  user_id: 1,
+  description: "Meh...",
+  rating: 3
+)
+
 
 puts "DONE!"
