@@ -2,6 +2,14 @@
 
 A mini e-commerce application built with Rails 4.2. This project involved exploring an existing code base, building additional features upon it and fixing existing bugs.
 
+## Screenshots
+
+### Product with average rating
+!["Screenshot of product with rating."](https://github.com/johnniereg/jungle-rails/blob/master/docs/product-rating.png)
+### New review form
+!["Screenshot of new review form."](https://github.com/johnniereg/jungle-rails/blob/master/docs/new-review.png)
+### Reviews
+!["Screenshot of reviews."](https://github.com/johnniereg/jungle-rails/blob/master/docs/reviews.png)
 
 ## Setup
 
