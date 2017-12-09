@@ -4,6 +4,15 @@
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+    <div>
+      <% @ratings = Review.where(product_id: product).pluck(:rating) %>
+      <% rating = @ratings.sum / @ratings.size.to_f %>
+      <% if @ratings.size > 0 %>
+        Rating: <%= rating %>
+      <% else %>
+        No rating yet.
+      <% end %>
+    </div>
   </header>
   <p class="description">
     <%= product.description %>
