@@ -132,9 +132,18 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.create!(
+  first_name: "Test",
+  last_name: "Test",
+  email: "test@example.com",
+  password_digest: "blahblah"
+)
+
 ## Reviews
 
 puts "Re-creating Reviews ..."
+
+@user = User.find(1)
 
 Review.destroy_all
 
@@ -143,62 +152,6 @@ Review.create!(
   user_id: 1,
   description: "I love it!",
   rating: 5
-)
-
-Review.create!(
-  product_id: 1,
-  user_id: 2,
-  description: "I hate it!",
-  rating: 1
-)
-
-Review.create!(
-  product_id: 1,
-  user_id: 3,
-  description: "Meh",
-  rating: 3
-)
-
-Review.create!(
-  product_id: 2,
-  user_id: 1,
-  description: "I love it!",
-  rating: 5
-)
-
-Review.create!(
-  product_id: 2,
-  user_id: 2,
-  description: "I hate it!",
-  rating: 1
-)
-
-Review.create!(
-  product_id: 2,
-  user_id: 3,
-  description: "Meh",
-  rating: 3
-)
-
-Review.create!(
-  product_id: 3,
-  user_id: 1,
-  description: "I love it!",
-  rating: 5
-)
-
-Review.create!(
-  product_id: 3,
-  user_id: 2,
-  description: "I hate it!",
-  rating: 1
-)
-
-Review.create!(
-  product_id: 3,
-  user_id: 3,
-  description: "Meh",
-  rating: 3
 )
 
 

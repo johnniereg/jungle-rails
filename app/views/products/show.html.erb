@@ -29,11 +29,14 @@
     <div class="row">
       <h2>New Review</h2>
 
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
+
       <%= form_for([@product, @review]) do |f| %>
         <div class="field">
           <%= f.label :rating %><br>
           <%= f.select :rating, [1, 2, 3, 4, 5] %>
-        </div>
         <div class="field">
           <%= f.label :description %><br>
           <%= f.text_field :description %>
