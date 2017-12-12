@@ -69,6 +69,20 @@ RSpec.describe User, type: :model do
       expect(user).to be(nil)
     end
 
+    it 'should authenticate even with spaces around the email' do
+      @user1 = User.create! password: 'testtest', password_confirmation: 'testtest', first_name: 'Jo', last_name: 'Blo', email: 'testing@test.com'      
+      user = User.authenticate_with_credentials('  testing@test.com  ', 'testtest')
+      expect(user).to be_an_instance_of User
+             
+    end
+
+    it 'should authenticate even if user types the wrong case' do
+      @user1 = User.create! password: 'testtest', password_confirmation: 'testtest', first_name: 'Jo', last_name: 'Blo', email: 'testing@test.com'      
+      user = User.authenticate_with_credentials('TESTING@test.com', 'testtest')
+      expect(user).to be_an_instance_of User
+          
+    end
+
   end
 
 
