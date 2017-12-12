@@ -58,13 +58,16 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
 
-
     it 'should return an instance of the user if successfully authenticated' do
+      @user1 = User.create! password: 'testtest', password_confirmation: 'testtest', first_name: 'Jo', last_name: 'Blo', email: 'testing@test.com'      
+      user = User.authenticate_with_credentials('testing@test.com', 'testtest')
+      expect(user).to be_an_instance_of User
     end
 
     it 'should return nil if not successfully authenticated' do
+      user = User.authenticate_with_credentials('test2@test.com', 'testtest')
+      expect(user).to be(nil)
     end
-
 
   end
 
